@@ -8,8 +8,18 @@ function sk_preview_find_jump(){
 
 # bound to helix, rg, sk, local .books file
 function sk_create_bookmark(){ 
+  sk_echo_position >> .books 
+}
+
+# bound to helix, rg, sk, local .books file
+function sk_echo_position(){ 
  x="$(sk --bind "ctrl-p:toggle-preview" --ansi -i -c "rg --color=always --line-number \"{}\" | sort" --preview="preview.sh -v {}" --preview-window=up:70%)";
- [[ $? -eq 0 ]] &&  echo "$(echo $x|cut -d: -f1)":"$(echo $x|cut -d: -f2)" >> .books 
+ [[ $? -eq 0 ]] &&  echo "$(echo $x|cut -d: -f1)":"$(echo $x|cut -d: -f2)" 
+}
+
+function sk_echo_position_absolute() {
+  echo $PWD/"$(sk_echo_position)"
+  
 }
 
 alias skridge='sk_preview_find_jump'
