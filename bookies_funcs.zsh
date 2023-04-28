@@ -18,7 +18,7 @@ function sk_echo_position(){
 }
 
 function sk_echo_position_absolute() {
-  echo $PWD/"$(sk_echo_position)"
+  echo -n $PWD/"$(sk_echo_position)"
   
 }
 
