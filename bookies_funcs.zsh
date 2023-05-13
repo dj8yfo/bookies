@@ -25,6 +25,7 @@ function sk_echo_position_absolute() {
 alias skridge='sk_preview_find_jump'
 
 alias skbook='sk_create_bookmark'
+alias skabs='sk_echo_position_absolute | wl-copy'
 
 # bound to helix, sk, local .books file
 alias hxbooks='hx $(cat .books | sk --preview="preview.sh -v {}" --preview-window="up:70%" | cut -d" " -f1)'
